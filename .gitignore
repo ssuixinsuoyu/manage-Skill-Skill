@@ -1,0 +1,8 @@
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
+server.out.log
+server.err.log
+skills-manifest.json
+node_modules/

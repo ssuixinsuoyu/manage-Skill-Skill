@@ -1,0 +1,4 @@
+﻿interface:
+  display_name: "Skill Atlas Builder"
+  short_description: "Generate a local website for browsing, importing, recommending, and calling Codex skills."
+  default_prompt: "Generate a Skill Atlas website for my Codex skills and start a local preview server."
