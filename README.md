@@ -99,7 +99,83 @@ If you only want to look at the static page, you can also open `site/index.html`
 
 ## How To Use The Skill Version
 
-The skill package is inside:
+There are two ways to use the Codex skill version.
+
+### Option 1: Install It Manually After Downloading
+
+Use this option if you downloaded the repository or the zip file yourself, and you do not want Codex to download the skill for you.
+
+1. Download this repository from GitHub.
+
+   On GitHub, click:
+
+   ```text
+   Code -> Download ZIP
+   ```
+
+2. Unzip the downloaded file.
+
+3. Find the `skill/` folder inside the project.
+
+   That folder is the actual Codex skill.
+
+4. Rename the `skill/` folder to:
+
+   ```text
+   skill-atlas-builder
+   ```
+
+5. Copy that folder into your local Codex skills folder.
+
+   On Windows, copy it to:
+
+   ```text
+   C:\Users\YOUR_NAME\.codex\skills\skill-atlas-builder
+   ```
+
+   On macOS or Linux, copy it to:
+
+   ```text
+   ~/.codex/skills/skill-atlas-builder
+   ```
+
+6. Restart Codex.
+
+7. Call the skill in Codex with:
+
+   ```text
+   $skill-atlas-builder
+   ```
+
+You can say something like:
+
+```text
+$skill-atlas-builder
+
+Generate a Skill Atlas website for my local Codex skills and start a preview server.
+```
+
+### Option 2: Install It With Codex Skill Installer
+
+If you want Codex to install it directly from GitHub, paste this into Codex:
+
+```text
+$skill-installer
+
+Install this Codex skill:
+repo: ssuixinsuoyu/manage-Skill-Skill
+path: skill
+```
+
+After installation, restart Codex and call:
+
+```text
+$skill-atlas-builder
+```
+
+### What The Skill Contains
+
+The skill source is inside:
 
 ```text
 skill/
