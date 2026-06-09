@@ -32,9 +32,13 @@ That prompt can be pasted into Codex to call the skill.
 
 This repository has three main parts:
 
+- `index.html`, `app.js`, `styles.css`
+
+  These files are placed at the repository root so the website can be opened easily with GitHub Pages.
+
 - `site/`
 
-  This is the website. You can open it locally, or deploy it as a normal static website.
+  This is another copy of the website source. It is useful if you want to keep the website files grouped in one folder.
 
 - `skill/`
 
@@ -56,6 +60,27 @@ This repository has three main parts:
 - Can install and load new skills when running with the local server.
 
 ## How To Preview The Website
+
+### Open It Online
+
+If this repository is published on GitHub, the repository page itself is not the website.
+
+To make it open like a real website, enable GitHub Pages:
+
+1. Open the repository on GitHub.
+2. Go to `Settings`.
+3. Open `Pages`.
+4. Under `Build and deployment`, choose `Deploy from a branch`.
+5. Choose branch `main` and folder `/root`.
+6. Save.
+
+After GitHub finishes building, the site will be available at a URL like:
+
+```text
+https://your-github-name.github.io/manage-Skill-Skill/
+```
+
+### Open It Locally
 
 Open a terminal in this project and run:
 

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>技能判别器</title>
+    <link rel="stylesheet" href="./styles.css?v=20260608-i18n-clean" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar" aria-label="工具概览">
+        <div>
+          <p class="eyebrow" data-i18n="atlasEyebrow">Codex 技能图谱</p>
+          <h1 data-i18n="appTitle">技能判别器</h1>
+        </div>
+        <div class="topActions">
+          <button id="languageToggle" class="languageToggle" type="button" aria-label="Switch language">EN</button>
+          <div class="formula" aria-hidden="true">
+            argmax<sub>s</sub> P(s | topic)
+          </div>
+        </div>
+      </header>
+
+      <section class="workbench" aria-label="技能推荐工具">
+        <div class="solver">
+          <div class="sectionTitle">
+            <label for="topicInput" data-i18n="topicLabel">输入你现在要处理的话题</label>
+            <span data-i18n="topicVector">话题向量</span>
+          </div>
+          <textarea
+            id="topicInput"
+            spellcheck="false"
+            data-i18n-placeholder="topicPlaceholder"
+            placeholder="例如：我想做一个小红书标题，主题是 AI 工具；或者：帮我诊断这个商业模式哪里不成立。"
+          ></textarea>
+          <div class="controls">
+            <button id="clearButton" type="button" data-i18n="clear">清空</button>
+            <div class="metric">
+              <span id="matchCount">0</span>
+              <small data-i18n="matchMetric">匹配项</small>
+            </div>
+          </div>
+        </div>
+
+        <aside class="resultPanel" aria-label="推荐结果">
+          <div class="panelHead">
+            <p data-i18n="recommendedCall">推荐调用</p>
+            <span id="confidenceLabel">waiting</span>
+          </div>
+          <div id="recommendations" class="recommendations"></div>
+        </aside>
+      </section>
+
+      <nav class="categoryBar" aria-label="分类筛选">
+        <div id="categoryInner" class="categoryInner"></div>
+      </nav>
+
+      <section class="authorSection" aria-label="作者文件夹">
+        <div class="authorHead">
+          <div>
+            <p class="eyebrow" data-i18n="authorEyebrow">作者文件夹</p>
+            <h2 data-i18n="authorFolders">作者文件夹</h2>
+          </div>
+          <p data-i18n="authorHint">同一作者或来源的一组技能会收进同一个文件夹。</p>
+        </div>
+        <div id="authorFolders" class="authorFolders"></div>
+      </section>
+
+      <section class="library" aria-label="技能列表">
+        <div class="libraryHead">
+          <div>
+            <p class="eyebrow" data-i18n="inventoryEyebrow">本机清单</p>
+            <h2 data-i18n="installedSkills">已安装技能</h2>
+          </div>
+          <div class="libraryTools">
+            <button id="autoScanButton" type="button" data-i18n="autoScan">自动检索本机技能</button>
+            <button id="importButton" type="button" data-i18n="importSkills">导入本机技能</button>
+            <input id="folderInput" type="file" webkitdirectory directory multiple hidden />
+            <input id="searchInput" type="search" data-i18n-placeholder="searchPlaceholder" placeholder="搜索名称、用途、关键词" />
+          </div>
+        </div>
+        <section class="installPanel" aria-label="安装技能">
+          <div>
+            <p class="eyebrow" data-i18n="installerEyebrow">技能安装器</p>
+            <h3 data-i18n="installTitle">安装新技能</h3>
+            <p data-i18n="installHint">输入 GitHub 地址、仓库路径、本地文件夹或压缩包路径；安装后会自动刷新下方列表。</p>
+          </div>
+          <div class="installControls">
+            <input id="installInput" type="text" data-i18n-placeholder="installPlaceholder" placeholder="例如：https://github.com/openai/skills/tree/main/skills/.curated/..." />
+            <button id="installButton" type="button" data-i18n="installButton">安装并载入</button>
+          </div>
+          <p id="installStatus" class="installStatus" data-i18n="installStatus">等待输入技能来源。</p>
+        </section>
+        <p id="inventoryStatus" class="inventoryStatus" data-i18n="inventoryStatus">正在尝试读取本机技能索引。</p>
+        <p class="privacyNote" data-i18n="privacyNote">本地运行时会自动读取 skills-manifest.json 或 /api/local-skills；公开网页仍需你手动选择 .codex/skills 或 .agents/skills 文件夹。</p>
+        <div id="skillGrid" class="skillGrid"></div>
+      </section>
+
+      <section id="callPanel" class="callPanel" hidden aria-label="技能调用面板">
+        <div class="callMeta">
+          <p class="eyebrow" data-i18n="callPacket">调用包</p>
+          <h2 id="callSkillName">技能</h2>
+          <p id="callSkillUse"></p>
+        </div>
+        <textarea id="callPrompt" readonly spellcheck="false"></textarea>
+        <div class="callActions">
+          <button id="copyCallButton" type="button" data-i18n="copyCall">复制调用指令</button>
+          <button id="closeCallButton" type="button" data-i18n="close">关闭</button>
+        </div>
+      </section>
+
+      <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    </main>
+
+    <script src="./app.js?v=20260608-i18n-clean"></script>
+  </body>
+</html>
